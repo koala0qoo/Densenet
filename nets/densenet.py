@@ -61,9 +61,7 @@ def densenet(images, num_classes=1001, is_training=False,
     with tf.variable_scope(scope, 'DenseNet', [images, num_classes]):
         with slim.arg_scope(bn_drp_scope(is_training=is_training,
                                          keep_prob=dropout_keep_prob)) as ssc:
-            # pass
-            ##########################
-            # Put your code here.
+
             # Convolution
             end_point = 'Conv2d_7x7'
             net = slim.conv2d(images, 2 * growth, [7, 7], stride=2, padding='SAME',
@@ -124,8 +122,7 @@ def densenet(images, num_classes=1001, is_training=False,
                 logits = tf.squeeze(logits, [1, 2], name='SpatialSqueeze')
 
             end_points['Logits'] = logits
-            ##########################
-
+            
     return logits, end_points
 
 
